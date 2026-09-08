@@ -50,7 +50,7 @@ public class OpenAiTranscriptionService implements TranscriptionService {
             return (String) response.get("text");
 
         } catch (Exception e) {
-            throw new RuntimeException("Transcription failed", e);
+            throw new TranscriptionException("Transcription failed: " + e.getMessage(), e);
         }
     }
 }

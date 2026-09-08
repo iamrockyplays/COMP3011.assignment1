@@ -13,7 +13,7 @@ public class ServerStatsService {
     private final Instant serverStartTime = Instant.now();
 
     // Atomic counters/flags because multiple concurrent requests may
-    // read/update these at once — plain long/boolean fields would risk
+    // read/update these at once plain long/boolean fields would risk
     // race conditions under load.
     private final AtomicLong inputTokens = new AtomicLong(0);
     private final AtomicLong outputTokens = new AtomicLong(0);
