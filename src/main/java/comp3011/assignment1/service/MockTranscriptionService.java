@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-@Profile("!prod") // active whenever prod is NOT the active profile
+@Profile("dev")   // only active when you explicitly set this locally
 public class MockTranscriptionService implements TranscriptionService {
 
     @Override

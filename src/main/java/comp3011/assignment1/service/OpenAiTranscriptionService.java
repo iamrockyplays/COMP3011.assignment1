@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Map;
 
 @Service
-@Profile("prod") // only active when the 'prod' profile is enabled
+@Profile("!dev")   // active by default whenever 'dev' is NOT set, including on TITAN
 public class OpenAiTranscriptionService implements TranscriptionService {
 
     @Value("${openai.api.key}")
