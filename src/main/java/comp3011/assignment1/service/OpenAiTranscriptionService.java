@@ -3,8 +3,6 @@ package comp3011.assignment1.service;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -28,12 +26,9 @@ public class OpenAiTranscriptionService implements TranscriptionService {
     private final ServerStatsService statsService;
 
     public OpenAiTranscriptionService(ServerStatsService statsService) {
-        this.statsService = statsService;
-        ClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        this.restClient = RestClient.builder()
-                .requestFactory(factory)
-                .build();
-    }
+    this.statsService = statsService;
+    this.restClient = RestClient.builder().build();
+}
 
 @Override
 public String transcribe(MultipartFile audioFile) {
